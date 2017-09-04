@@ -1,0 +1,105 @@
+* {
+    font: 16px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+h3 {
+    text-align: center;
+}
+body {
+    background: #0079bf;
+    height: inherit;
+    margin: 0;
+    width: inherit;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.todo-wrapper {
+    padding: 10px;
+    width: 20%;
+}
+.todo-list, .form__add-list {
+    background-color: #e2e4e6;
+    border-radius: 5px;
+    box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+    -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+    padding: 10px 5px;
+    text-align: center;
+}
+.todo-task {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, .45);
+    -webkit-box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, .45);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: left;
+
+}
+.textarea__add-task {
+    border-radius: 5px;
+    height: 60px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 5px;
+    resize: vertical;
+    width: 100%;
+}
+.input__add_list, .input__add_task {
+    border-radius: 5px;
+    border: 0;
+    background:	#5fb84c;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, .45);
+    -webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, .45);
+    color: #ffffff;
+    padding: 10px;
+    width: 70%;
+}
+.input__add_list:hover, .input__add_task:hover {
+    background: #57a540;
+}
+.required {
+    display: none;
+}
+#add_list_title {
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    height: 60px;
+    margin-bottom:10px;
+    overflow:hidden;
+    padding: 2px;
+    text-align: center;
+    width: 100%;
+}
+.top-menu {
+    background: #0067a3;
+    text-align: center;
+}
+.top-menu ul {
+    margin: 0;
+}
+.top-menu li {
+    background: #4791bc;
+    border-radius: 5px;
+    box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, .45);
+    -webkit-box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, .45);
+    display: inline-block;
+    list-style: none;
+    margin: 10px;
+    padding: 5px 15px;
+}
+.top-menu li:hover{
+    background: #5f9fc5;
+}
+.top-menu li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
+

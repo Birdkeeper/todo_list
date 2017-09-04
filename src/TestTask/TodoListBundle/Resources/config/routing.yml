@@ -1,0 +1,38 @@
+test_task_todo_list_homepage:
+    path:     /
+    defaults: { _controller: TestTaskTodoListBundle:TodoList:show }
+    requirements:
+             methods:  GET|POST
+
+test_task_todo_list_archive:
+    path:     /archive
+    defaults: { _controller: TestTaskTodoListBundle:TodoList:showArchive }
+    requirements:
+             methods:  GET
+
+test_task_todo_list_delete_list:
+    path:     /{list_id}/delete
+    defaults: { _controller: TestTaskTodoListBundle:TodoList:deleteList }
+    requirements:
+             methods:  GET
+             id: \d+
+
+test_task_todo_list_reestablish_list:
+    path:     /{list_id}/reestablish
+    defaults: { _controller: TestTaskTodoListBundle:TodoList:reestablishList }
+    requirements:
+              methods:  GET
+              id: \d+
+
+test_task_todo_list_delete_task:
+    path:     /{task_id}/delete_task
+    defaults: { _controller: TestTaskTodoListBundle:TodoList:deleteTask }
+    requirements:
+              methods:  GET
+              id: \d+
+
+test_task_todo_list_add_task:
+    path:     /add_task
+    defaults: { _controller: TestTaskTodoListBundle:TodoList:addTask }
+    requirements:
+              methods:  GET|POST

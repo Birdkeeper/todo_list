@@ -1,0 +1,5 @@
+test_task_todo_list:
+    resource: "@TestTaskTodoListBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

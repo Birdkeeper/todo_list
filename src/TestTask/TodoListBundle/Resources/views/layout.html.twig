@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Доска задач{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+    <div class="top-menu">
+        <ul>
+            <li><a href="{{ path('test_task_todo_list_homepage')}}">Домой</a></li>
+            <li><a href="{{ path('test_task_todo_list_archive')}}">Архив</a></li>
+        </ul>
+    </div>
+    {% block content %}
+        <div class="content">
+            {% for list in lists %}
+                <div class="todo-wrapper">
+                    <div class="todo-list">
+                        <a href="{{ path('test_task_todo_list_delete_list', { 'list_id': list.id })}}">
+                            <img src="{{ asset('img/close.png') }}" width="30" height="30">
+                        </a>
+                        <h3>{{ list.title }}</h3>
+                        {% for task in list.task %}
+                            {% if task.isdone == 0 %}
+                            <div class="todo-task">
+                                <div class="todo-task__content">{{ task.content }}</div>
+                                <a href="{{ path('test_task_todo_list_delete_task', { 'task_id': task.id })}}">
+                                    <img src="{{ asset('img/close2.png') }}" width="15" height="15">
+                                </a>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% block form_add_task %}
+                            <form class="form__add-task">
+                                <textarea class="textarea__add-task" placeholder="Задача"></textarea>
+                                <input type="button" class="input__add_task" value="Добавить задачу"
+                                       data-url="{{ path('test_task_todo_list_add_task')}}" data-id="{{ list.id }}"/>
+                            </form>
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="todo-wrapper">
+                <form class="form__add-list" action="{{ path('test_task_todo_list_homepage') }}" method="post">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <input type="submit" class="input__add_list" value="Добавить список"/>
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+    {% block javascripts %}
+        <script type='text/javascript' src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('js/script-add-task.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

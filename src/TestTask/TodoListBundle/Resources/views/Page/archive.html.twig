@@ -1,0 +1,26 @@
+{% extends 'TestTaskTodoListBundle::layout.html.twig' %}
+{% block title %}Архив{% endblock %}
+
+{% block content %}
+    <div class="content">
+        {% for list in lists %}
+            <div class="todo-wrapper">
+                <div class="todo-list">
+                    <a href="{{ path('test_task_todo_list_reestablish_list', { 'list_id': list.id })}}">
+                        <img src="{{ asset('img/ok.png') }}" width="20" height="20">
+                    </a>
+                    <h3>{{ list.title }}</h3>
+                    {% for task in list.task %}
+                        {% if task.isdone == 1 %}
+                            <div class="todo-task">
+                                <div class="todo-task__content">{{ task.content }}</div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
